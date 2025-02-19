@@ -23,14 +23,13 @@ Permintaan `GET /download.html HTTP/1.1` menunjukkan bahwa klien meminta file `d
 **Langkah-langkah mengetahui jenis HTTP:**
 1. Ketik **"HTTP"** pada kolom filter pencarian di bagian atas.
 2. Cari protocol HTTP yang memiliki status tertentu, misalnya:
-   ![Detailed HTTP](detailed-http.png)
-4. Klik kanan pada kolom tersebut, cari opsi **Follow** kemudian pilih **Follow HTTP Stream**.
-5. Setelah klik **Follow HTTP Stream**, akan muncul informasi detail.
+    ![Detailed HTTP](detailed-http.png)
+3. Klik kanan pada kolom tersebut, cari opsi **Follow** kemudian pilih **Follow HTTP Stream**.
    ![Follow HTTP Stream](follow.png)
+4. Setelah klik **Follow HTTP Stream**, akan muncul informasi detail.
+   ![Versi HTTP](versi-http.png)
 
-Berdasarkan gambar di bawah ini, terlihat bahwa jenis protokol HTTP yang digunakan adalah **HTTP/1.1**.
-
-![Versi HTTP](versi-http.png)
+Berdasarkan gambar di atas ini, terlihat bahwa jenis protokol HTTP yang digunakan adalah **HTTP/1.1**.
 
 #### **IP Address:**
 - **Client:** `145.254.160.237`
