@@ -14,13 +14,10 @@ Dr Ferry Astika Saputra ST, M.Sc
 **POLITEKNIK ELEKTRONIKA NEGERI SURABAYA**  
 2024  
 
+---
 ## **1. Analisa file http.cap dengan wireshark : Versi HTTP yang digunakan, IP address dari client maupun server, waktu dari client mengirimkan HTTP request., Waktu dari server mengirinmkan server dan berapa durasinya**
 
-```http
-GET /download.html HTTP/1.1
-```
-
-#### Jawab:
+### Jawab:
 Permintaan `GET /download.html HTTP/1.1` menunjukkan bahwa klien meminta file `download.html` dari server menggunakan metode `GET` dalam protokol `HTTP/1.1`.
 
 **Langkah-langkah mengetahui jenis HTTP:**
@@ -29,16 +26,17 @@ Permintaan `GET /download.html HTTP/1.1` menunjukkan bahwa klien meminta file `d
    ![Detailed HTTP](detailed-http.png)
 4. Klik kanan pada kolom tersebut, cari opsi **Follow** kemudian pilih **Follow HTTP Stream**.
 5. Setelah klik **Follow HTTP Stream**, akan muncul informasi detail.
+   ![Follow HTTP Stream](follow.png)
 
 Berdasarkan gambar di bawah ini, terlihat bahwa jenis protokol HTTP yang digunakan adalah **HTTP/1.1**.
 
 ![Versi HTTP](versi-http.png)
 
-### **IP Address:**
+#### **IP Address:**
 - **Client:** `145.254.160.237`
 - **Server:** `65.208.228.223`
 
-### **Durasi waktu server merespon:**
+#### **Durasi waktu server merespon:**
 - **Waktu dari client mengirim request:** `0.911310`
   ![waktu get](waktu-get.png)
 - **Waktu dari server mengirimkan response:** `4.846969`
@@ -82,7 +80,7 @@ Waktu respons ini bisa dipengaruhi oleh berbagai faktor, seperti:
 - Data melewati beberapa router yang bertindak sebagai node dalam jaringan.
 - Internet ditampilkan sebagai jaringan perantara yang menghubungkan berbagai node.
 - Diagram ini menggambarkan bahwa komunikasi dimulai dari proses di satu komputer, dikirim melalui jaringan (melewati beberapa node), lalu diterima oleh proses di komputer tujuan.
-- 
+  
 ### **Konsep Komunikasi Data dalam Jaringan**
 
 #### **Model OSI (Tiga Lapisan Utama)**
