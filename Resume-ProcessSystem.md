@@ -35,8 +35,18 @@ Proses pertama di Linux adalah **`init` atau `systemd` (PID 1)** yang mengatur p
 ## **3. Mengontrol Proses dengan Sinyal**
 Linux menggunakan **sinyal (signals)** untuk berkomunikasi dengan proses. Beberapa sinyal yang sering digunakan:
 - **`SIGKILL` (`kill -9 PID`)** → Menghentikan proses secara paksa.
+  ![](images/process-system/sigkill1.png)
+  ![](images/process-system/sigkill2.png)
+  
 - **`SIGINT` (`Ctrl+C`)** → Menghentikan proses dari terminal.
+
+Ketika kombinasi tombol Ctrl+C ditekan di terminal, proses yang sedang berjalan akan dihentikan, dan terminal akan menampilkan simbol '^C'. Hal ini menunjukkan bahwa proses telah menerima sinyal SIGINT untuk dihentikan dengan baik. Namun, karena terminal Linux yang digunakan berbasis online, percobaan ini tidak dapat dilakukan secara langsung.
+
+  
 - **`SIGTERM` (`kill PID`)** → Meminta proses berhenti dengan baik.
+  ![](images/process-system/sigterm1.png)
+  ![](images/process-system/sigterm2.png)
+  
 - **`SIGHUP`** → Digunakan untuk me-restart daemon atau proses background.
 
 Selain sinyal di atas, terdapat berbagai sinyal lain yang digunakan dalam sistem Linux. Berikut adalah daftar lengkap 31 sinyal yang tersedia dalam sistem operasi Linux beserta deskripsinya:
@@ -81,8 +91,16 @@ Selain sinyal di atas, terdapat berbagai sinyal lain yang digunakan dalam sistem
 
 ## **4. Mengirim Sinyal dengan `kill`**
 - **`kill -9 [PID]`** → Mematikan proses secara paksa.
+    ![](images/process-system/sigkill1.png)
+  ![](images/process-system/sigkill2.png)
+
+  
 - **`killall [nama_proses]`** → Menghentikan semua proses dengan nama tertentu.
 - **`pkill [nama_proses]`** → Mirip `killall`, tapi bisa mencari proses berdasarkan pola nama.
+  
+berikut adalah contoh menggunakan perintah killall :
+![](images/process-system/sigterm1.png)
+![](images/process-system/killall.png)
 
 ---
 
