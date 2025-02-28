@@ -33,6 +33,9 @@ df -h   # Menampilkan penggunaan disk dalam format yang mudah dibaca
 lsblk   # Melihat struktur partisi dan filesystem pada perangkat
 mount   # Menampilkan semua filesystem yang saat ini ter-mount
 ```
+Menjalankan perintah untuk melihat informasi filesystem adalah sebagai berikut : 
+
+![](images/filesystem/melihat-filesystem.png)
 
 ## Mounting dan Unmounting
 Filesystem dapat dipasang menggunakan perintah `mount`:
@@ -59,6 +62,10 @@ lsof /mnt
 - **/mnt, /media**: Titik mounting untuk perangkat eksternal.
 - **/usr**: Aplikasi dan library pengguna.
 - **/var**: File log dan data yang sering berubah.
+  
+Berikut perintah untuk melihat struktur direktori : 
+  
+  ![](images/filesystem/melihat-direktori.png)
 
 ## Jenis File
 Filesystem UNIX mendukung beberapa jenis file:
@@ -75,6 +82,10 @@ Menentukan jenis file dengan perintah:
 file /bin/bash
 ```
 
+Menjalankan perintah untuk melihat jenisfile dan metadata serta atribut file : 
+
+![](images/filesystem/atribut-file.png)
+
 ## Hak Akses File
 File memiliki **mode** yang menentukan hak akses:
 - **r** (read), **w** (write), **x** (execute).
@@ -88,6 +99,10 @@ chmod 755 file.txt
 chown user:group file.txt
 ```
 
+Menjalankan perintah untuk melihat hak akses file sebagai berikut : 
+
+![](images/filesystem/hakaksesfile.png)
+
 ## Access Control Lists (ACLs)
 ACL memungkinkan lebih banyak kontrol terhadap hak akses.
 - Melihat ACL:
@@ -99,6 +114,10 @@ getfacl file.txt
 setfacl -m u:user:rw file.txt
 ```
 
+Menjalankan perintah untuk melihat Access Control List (ACLs) :
+
+![](images/filesystem/acls.png)
+
 ## Metadata dan Atribut File
 - **Timestamp**: Setiap file memiliki **atime** (access time), **mtime** (modification time), dan **ctime** (change time).
 - **Inode**: Setiap file memiliki inode yang menyimpan metadata.
@@ -107,6 +126,10 @@ setfacl -m u:user:rw file.txt
 ls -i file.txt
 stat file.txt
 ```
+
+Menjalankan perintah untuk melihat jenisfile dan metadata serta atribut file : 
+
+![](images/filesystem/atribut-file.png)
 
 ## Journaling Filesystem
 Journaling membantu mencegah kerusakan data saat sistem crash.
