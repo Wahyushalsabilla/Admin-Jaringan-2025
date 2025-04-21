@@ -1,6 +1,6 @@
 # **LAPORAN WORKSHOP ADMINISTRASI JARINGAN**
 
-## **Resume Wireshark**
+## **Konfigurasi NAT**
 
 ### **Dosen Pengampu:**
 Dr Ferry Astika Saputra ST, M.Sc
