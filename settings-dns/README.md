@@ -1,5 +1,3 @@
-# Untitled
-
 # Laporan Konfigurasi DNS Server dengan BIND9
 
 ---
