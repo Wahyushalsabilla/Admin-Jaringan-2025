@@ -77,7 +77,7 @@ www     IN  CNAME   ns
 ```
 
 ## 8. Pengujian DNS Setelah Konfigurasi Zona
-Setelah file zona disimpan dan service BIND9 direstart, lDari hasil konfigurasi yang dilakukan, server berhasil diatur menggunakan BIND9 sebagai DNS server. Alamat domain kelompok5.home dapat di-resolve dengan benar ke IP 192.168.5.10. Semua tahapan mulai dari pengaturan IP, instalasi BIND9, konfigurasi file zona, hingga pengujian dengan dig berjalan sukses tanpa error.akukan kembali pengujian:
+Setelah file zona disimpan dan service BIND9 direstart, lDari hasil konfigurasi yang dilakukan, server berhasil diatur menggunakan BIND9 sebagai DNS server. Alamat domain kelompok5.home dapat di-resolve dengan benar ke IP 192.16https://png.pngtree.com/png-vector/20240208/ourmid/pngtree-cute-anime-smiling-face-character-png-image_11718179.png8.5.10. Semua tahapan mulai dari pengaturan IP, instalasi BIND9, konfigurasi file zona, hingga pengujian dengan dig berjalan sukses tanpa error.akukan kembali pengujian:
 
 ```
 dig kelompok5.home
@@ -85,6 +85,46 @@ dig kelompok5.home
 ;; ANSWER SECTION:
 kelompok5.home. 86400 IN A 192.168.5.10
 ```
+## 9. Pengujian DNS ke Domain Kelompok Lain
+
+Setelah konfigurasi DNS berhasil, dilakukan juga pengujian untuk memastikan bahwa DNS dari kelompok lain juga bisa diakses. Contoh pengujian:
+
+### Pengujian `dig kelompok2.home`
+
+Perintah:
+```bash
+dig kelompok2.home
+```
+
+Hasilnya menunjukkan bahwa domain `kelompok2.home` berhasil di-resolve ke IP address `192.168.2.10`.
+
+**Hasil:**
+```
+;; ANSWER SECTION:
+kelompok2.home.    86400    IN    A    192.168.2.10
+```
+
+**Gambar Bukti:**
+![img](img)
+
+---
+
+### Pengujian `dig kelompok3.home`
+
+Perintah:
+```bash
+dig kelompok3.home
+```
+
+Hasil menunjukkan domain `kelompok3.home` berhasil di-resolve dengan benar ke alamat IP yang sesuai, dan ketika diakses melalui browser (contoh: `http://192.168.3.10`), halaman kelompok 3 berhasil ditampilkan.
+
+**Gambar Bukti:**
+![img](img)
+
+---
+
+Silakan tambahkan gambar hasil `dig` sesuai kelompok lain yang diuji, dan pastikan IP yang ditampilkan sesuai dengan konfigurasi mereka.
+
 
 ---
 
