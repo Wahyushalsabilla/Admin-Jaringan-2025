@@ -21,21 +21,15 @@ Shalsabilla Wahyu Arifhana - 3123600014
 **Analisis:**
 Proses instalasi Power BI Desktop cukup sederhana dan dapat dilakukan langsung melalui situs resmi Microsoft atau Microsoft Store. Power BI menyediakan antarmuka yang user-friendly dan mendukung berbagai sumber data seperti Excel, SQL Server, maupun layanan cloud seperti Google Analytics dan Azure.
 
-![powerbi-install.png](path/to/your/image.png)
-
 ### Connector MySQL
 
 **Analisis:**
 Power BI tidak bisa langsung mengakses database MySQL tanpa adanya konektor (driver) tambahan yang disebut MySQL Connector/NET. Instalasi ini memungkinkan Power BI untuk mengenali MySQL sebagai salah satu sumber data eksternal. Setelah terinstal, pengguna dapat membuka Power BI Desktop, memilih opsi “Get Data”, lalu memilih “MySQL Database”. Jika konektor belum terdeteksi, Power BI akan menampilkan peringatan bahwa driver belum tersedia.
 
-![mysql-connector.png](path/to/your/image.png)
-
 ### Docker Desktop
 
 **Analisis:**
 Docker memungkinkan pengembang untuk membangun, menjalankan, dan mengelola aplikasi dalam wadah (container) yang ringan dan portabel. Proses instalasi Docker Desktop cukup mudah dilakukan pada sistem operasi Windows, macOS, maupun Linux, asalkan sistem memenuhi persyaratan minimum, seperti dukungan untuk virtualisasi.
-
-![docker-install.png](path/to/your/image.png)
 
 ---
 
@@ -44,61 +38,68 @@ Docker memungkinkan pengembang untuk membangun, menjalankan, dan mengelola aplik
 **Analisis:**
 File SQL dimasukkan ke dalam folder yang ada.
 
-![sql-folder.png](path/to/your/image.png)
-
 ---
 
 ## Menjalankan Container MySQL dengan Docker
 
 **Analisis:**
-Perintah `docker run` digunakan untuk menjalankan container MySQL versi 5.7 dengan nama `axon-mysql`, password root `123456`, dan pemetaan port `3306`. Karena image `mysql:5.7` belum tersedia secara lokal, Docker secara otomatis mengunduh image tersebut dari Docker Hub.
+Perintah:
 
-![docker-run-container.png](path/to/your/image.png)
+```bash
+docker run --name axon-mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -d mysql:5.7
+```
+
+digunakan untuk menjalankan container MySQL versi 5.7 dengan nama `axon-mysql`, password root `123456`, dan pemetaan port `3306`. Karena image `mysql:5.7` belum tersedia secara lokal, Docker akan otomatis mengunduh image tersebut dari Docker Hub.
 
 ---
 
 ## Salin File dari Komputer Lokal ke Dalam Container Docker
 
 **Analisis:**
-Proses pemindahan file SQL ke dalam container Docker menggunakan perintah `docker cp` bergantung pada path dan nama file yang tepat. Percobaan pertama gagal karena file tidak ditemukan, namun berhasil setelah menggunakan nama file yang benar yaitu `Axon sales - Mysql Database.sql` dan disalin ke dalam container `axon-mysql` sebagai `axon.sql`.
+Gunakan perintah:
 
-![docker-cp.png](path/to/your/image.png)
+```bash
+docker cp "Axon sales - Mysql Database.sql" axon-mysql:/axon.sql
+```
+
+Proses pemindahan file SQL ke dalam container akan berhasil jika nama file dan path-nya benar.
 
 ---
 
 ## Eksekusi Shell dalam Container dan Import Database MySQL
 
 **Analisis:**
-Masuk ke container `axon-mysql` menggunakan perintah:
+Masuk ke dalam container dengan:
 
 ```bash
 docker exec -it axon-mysql bash
 ```
 
-Kemudian mencoba impor file `axon.sql` ke database `classicmodels`, namun gagal karena perintah dijalankan tanpa password. Setelah itu berhasil login dengan:
+Lalu login ke MySQL:
 
 ```bash
 mysql -u root -p
 ```
 
-dan memasukkan password yang sesuai. MySQL siap digunakan untuk proses selanjutnya, termasuk impor data.
+Setelah memasukkan password, buat database baru:
 
-![mysql-import.png](path/to/your/image.png)
+```sql
+CREATE DATABASE classicmodels;
+USE classicmodels;
+```
 
 ---
 
 ## Membuat Database `classicmodels` dan Menampilkan Daftar Seluruh Database
 
 **Analisis:**
-Setelah login ke MySQL, gunakan:
+Gunakan perintah:
 
 ```sql
 SHOW databases;
 ```
 
-Database `classicmodels` muncul bersama dengan database default lainnya seperti `information_schema`, `mysql`, `performance_schema`, dan `sys`.
-
-![show-databases.png](path/to/your/image.png)
+Database `classicmodels` akan muncul bersama dengan database default lainnya seperti `information_schema`, `mysql`, `performance_schema`, dan `sys`.
 
 ---
 
@@ -111,33 +112,31 @@ Gunakan perintah:
 mysql -u root -p classicmodels < /axon.sql
 ```
 
-untuk mengimpor data ke database `classicmodels`.
-
-![import-model.png](path/to/your/image.png)
+untuk mengimpor data ke dalam database `classicmodels`.
 
 ---
 
 ## Menampilkan Tabel yang Ada di Database
 
 **Analisis:**
-Setelah memilih database `classicmodels`, gunakan perintah:
+Setelah berada di dalam database `classicmodels`, gunakan perintah:
 
 ```sql
 SHOW tables;
 ```
 
-Hasilnya menunjukkan ada 8 tabel: `customers`, `employees`, `offices`, `orderdetails`, `orders`, `payments`, `productlines`, dan `products`.
-
-![show-tables.png](path/to/your/image.png)
+Akan muncul tabel-tabel seperti `customers`, `employees`, `offices`, `orderdetails`, `orders`, `payments`, `productlines`, dan `products`.
 
 ---
 
 ## Menampilkan Tabel untuk 5 Customer
 
 **Analisis:**
-Analisis data pelanggan dilakukan dengan pendekatan klasik, menggunakan query SQL sederhana untuk menghitung jumlah pelanggan per negara atau rata-rata batas kredit. Hasil berupa laporan statis.
+Gunakan query berikut untuk menampilkan 5 data pelanggan:
 
-![top-customers.png](path/to/your/image.png)
+```sql
+SELECT * FROM customers LIMIT 5;
+```
 
 ---
 
@@ -145,5 +144,3 @@ Analisis data pelanggan dilakukan dengan pendekatan klasik, menggunakan query SQ
 
 **Analisis:**
 Dashboard Power BI menampilkan analisis penjualan AXON Classical Cars secara visual. Total penjualan: 9,60 juta, profit: 3,83 juta, 122 pelanggan, dan 23 karyawan. Penjualan terbesar dari Amerika Serikat (3,3 juta), dengan tahun terbaik 2004 (4,5 juta). Pelanggan terbanyak dari Eropa (52,46%). Visualisasi ini membantu pengambilan keputusan strategis berbasis data.
-
-![powerbi-dashboard.png](path/to/your/image.png)
