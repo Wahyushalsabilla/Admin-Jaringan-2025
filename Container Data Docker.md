@@ -18,15 +18,21 @@ Shalsabilla Wahyu Arifhana - 3123600014
 
 ### Power BI
 
+![Instalasi Power BI](images/containe-system/instal_powerbi.png)  
+
 **Analisis:**
 Proses instalasi Power BI Desktop cukup sederhana dan dapat dilakukan langsung melalui situs resmi Microsoft atau Microsoft Store. Power BI menyediakan antarmuka yang user-friendly dan mendukung berbagai sumber data seperti Excel, SQL Server, maupun layanan cloud seperti Google Analytics dan Azure.
 
 ### Connector MySQL
 
+![Instalasi Power BI](images/containe-system/instal_connector.png)  
+
 **Analisis:**
 Power BI tidak bisa langsung mengakses database MySQL tanpa adanya konektor (driver) tambahan yang disebut MySQL Connector/NET. Instalasi ini memungkinkan Power BI untuk mengenali MySQL sebagai salah satu sumber data eksternal. Setelah terinstal, pengguna dapat membuka Power BI Desktop, memilih opsi “Get Data”, lalu memilih “MySQL Database”. Jika konektor belum terdeteksi, Power BI akan menampilkan peringatan bahwa driver belum tersedia.
 
 ### Docker Desktop
+
+![Instalasi Power BI](images/containe-system/instal_docker.png)  
 
 **Analisis:**
 Docker memungkinkan pengembang untuk membangun, menjalankan, dan mengelola aplikasi dalam wadah (container) yang ringan dan portabel. Proses instalasi Docker Desktop cukup mudah dilakukan pada sistem operasi Windows, macOS, maupun Linux, asalkan sistem memenuhi persyaratan minimum, seperti dukungan untuk virtualisasi.
@@ -34,6 +40,8 @@ Docker memungkinkan pengembang untuk membangun, menjalankan, dan mengelola aplik
 ---
 
 ## Buat Folder untuk File SQL yang Disediakan
+
+![Instalasi Power BI](images/containe-system/instal_folder.png)  
 
 **Analisis:**
 File SQL dimasukkan ke dalam folder yang ada.
@@ -141,6 +149,8 @@ SELECT * FROM customers LIMIT 5;
 ---
 
 ## Import Data BI ke Power BI untuk Visualisasi
+
+![Instalasi Power BI](images/containe-system/hasil_powerbi.png)  
 
 **Analisis:**
 Dashboard Power BI menampilkan analisis penjualan AXON Classical Cars secara visual. Total penjualan: 9,60 juta, profit: 3,83 juta, 122 pelanggan, dan 23 karyawan. Penjualan terbesar dari Amerika Serikat (3,3 juta), dengan tahun terbaik 2004 (4,5 juta). Pelanggan terbanyak dari Eropa (52,46%). Visualisasi ini membantu pengambilan keputusan strategis berbasis data.
